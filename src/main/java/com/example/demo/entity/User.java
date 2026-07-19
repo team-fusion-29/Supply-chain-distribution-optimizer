@@ -13,28 +13,19 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+// Remove @NoArgsConstructor and add explicit constructor
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-@NoArgsConstructor
+// @NoArgsConstructor - commented out or removed
 public class User {
-
-    // ==========================================
-    // Primary Key
-    // ==========================================
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
-    // ==========================================
-    // Personal Information
-    // ==========================================
 
     @Column(nullable = false, length = 50)
     private String firstName;
@@ -48,35 +39,15 @@ public class User {
     @Column(nullable = false, length = 15)
     private String phoneNumber;
 
-
-    // ==========================================
-    // Authentication
-    // ==========================================
-
     @Column(nullable = false)
     private String password;
-
-
-    // ==========================================
-    // Role
-    // ==========================================
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole role;
 
-
-    // ==========================================
-    // Account Status
-    // ==========================================
-
     @Column(nullable = false)
     private boolean active = true;
-
-
-    // ==========================================
-    // Audit
-    // ==========================================
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -84,149 +55,116 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
+    // EXPLICIT DEFAULT CONSTRUCTOR (only one)
+    public User() {
+        super();
+    }
+
+    // Parameterized constructor
+    public User(Long id, String firstName, String lastName, String email, String phoneNumber, String password,
+            UserRole role, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        super();
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.role = role;
+        this.active = active;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     @PrePersist
     public void onCreate() {
-
         createdAt = LocalDateTime.now();
-
         updatedAt = LocalDateTime.now();
-
     }
-
 
     @PreUpdate
     public void onUpdate() {
-
         updatedAt = LocalDateTime.now();
-
     }
 
+    // Getters and Setters...
+    public Long getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
+    public String getPassword() {
+        return password;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public UserRole getRole() {
+        return role;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 
+    public boolean isActive() {
+        return active;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-	public UserRole getRole() {
-		return role;
-	}
-
-
-	public void setRole(UserRole role) {
-		this.role = role;
-	}
-
-
-	public boolean isActive() {
-		return active;
-	}
-
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
-	}
-
-
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-
-	public LocalDateTime getUpdatedAt() {
-		return updatedAt;
-	}
-
-
-	public void setUpdatedAt(LocalDateTime updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-
-	public User(Long id, String firstName, String lastName, String email, String phoneNumber, String password,
-			UserRole role, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.password = password;
-		this.role = role;
-		this.active = active;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-
-
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-
-
-
-    
-
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
