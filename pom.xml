@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>LogiSphere</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging> <!-- Changed from jar to war -->
 	<name>LogiSphere</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -61,6 +62,13 @@
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
+		<!-- Add this dependency for WAR packaging -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope> <!-- Provided scope for WAR deployment -->
 		</dependency>
 
 		<dependency>
@@ -118,6 +126,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>LogiSphere</finalName> <!-- Optional: WAR file name -->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -167,7 +176,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Add the WAR plugin for proper WAR file generation -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
