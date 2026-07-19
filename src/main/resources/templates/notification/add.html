@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Notification | LogiSphere</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet"
+          th:href="@{/css/notification.css}">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <a th:href="@{/admin/dashboard}" class="btn btn-outline-primary mb-3">← Back to Dashboard</a>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-bell-fill text-primary"></i>
+
+                Create Notification
+
+            </h2>
+
+            <p class="text-muted">
+
+                Send notifications to drivers and customers.
+
+            </p>
+
+        </div>
+
+        <a th:href="@{/notifications}"
+           class="btn btn-secondary">
+
+            <i class="bi bi-arrow-left-circle"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body p-5">
+
+            <form th:action="@{/notifications/save}"
+                  th:object="${notification}"
+                  method="post">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Notification ID
+
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{notificationId}"
+                               placeholder="Enter Notification ID"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Notification Title
+
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{title}"
+                               placeholder="Enter Notification Title"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+
+                        <label class="form-label">
+
+                            Message
+
+                        </label>
+
+                        <textarea class="form-control"
+                                  rows="4"
+                                  th:field="*{message}"
+                                  placeholder="Enter Notification Message"
+                                  required></textarea>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">
+
+                            Notification Type
+
+                        </label>
+
+                        <select class="form-select"
+                                th:field="*{notificationType}">
+
+                            <option value="">Select Type</option>
+
+                            <option value="SHIPMENT">Shipment</option>
+
+                            <option value="WEATHER">Weather</option>
+
+                            <option value="DELIVERY">Delivery</option>
+
+                            <option value="SYSTEM">System</option>
+
+                            <option value="PAYMENT">Payment</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">
+
+                            Recipient Type
+
+                        </label>
+
+                        <select class="form-select"
+                                th:field="*{recipientType}">
+
+                            <option value="">Select Recipient</option>
+
+                            <option value="CUSTOMER">Customer</option>
+
+                            <option value="DRIVER">Driver</option>
+
+                            <option value="ADMIN">Admin</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">
+
+                            Priority
+
+                        </label>
+
+                        <select class="form-select"
+                                th:field="*{priority}">
+
+                            <option value="LOW">LOW</option>
+
+                            <option value="MEDIUM">MEDIUM</option>
+
+                            <option value="HIGH">HIGH</option>
+
+                            <option value="CRITICAL">CRITICAL</option>
+
+                        </select>
+
+                    </div>
+                                        <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Recipient ID
+
+                        </label>
+
+                        <input type="number"
+                               class="form-control"
+                               th:field="*{recipientId}"
+                               placeholder="Enter Recipient ID">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Recipient Name
+
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{recipientName}"
+                               placeholder="Enter Recipient Name">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Recipient Email
+
+                        </label>
+
+                        <input type="email"
+                               class="form-control"
+                               th:field="*{recipientEmail}"
+                               placeholder="Enter Recipient Email">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Recipient Phone
+
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{recipientPhone}"
+                               placeholder="Enter Recipient Phone">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Shipment ID
+
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{shipmentId}"
+                               placeholder="Enter Shipment ID">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Status
+
+                        </label>
+
+                        <select class="form-select"
+                                th:field="*{status}">
+
+                            <option value="PENDING">PENDING</option>
+
+                            <option value="SENT">SENT</option>
+
+                            <option value="FAILED">FAILED</option>
+
+                            <option value="READ">READ</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <div class="form-check mt-4">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   th:field="*{emailSent}">
+
+                            <label class="form-check-label">
+
+                                Email Sent
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <div class="form-check mt-4">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   th:field="*{smsSent}">
+
+                            <label class="form-check-label">
+
+                                SMS Sent
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <div class="form-check mt-4">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   th:field="*{pushSent}">
+
+                            <label class="form-check-label">
+
+                                Push Notification Sent
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+
+                        <div class="form-check">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   th:field="*{isRead}">
+
+                            <label class="form-check-label">
+
+                                Mark as Read
+
+                            </label>
+
+                        </div>
+
+                    </div>
+                                        <div class="col-12 mt-4 d-flex justify-content-between">
+
+                        <a th:href="@{/notifications}"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left-circle"></i>
+
+                            Back
+
+                        </a>
+
+                        <div>
+
+                            <button type="reset"
+                                    class="btn btn-warning me-2">
+
+                                <i class="bi bi-arrow-clockwise"></i>
+
+                                Reset
+
+                            </button>
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+
+                                <i class="bi bi-bell-fill"></i>
+
+                                Save Notification
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script th:src="@{/js/notification.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+/* Driver Dashboard Specific Styles */
+.topbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #78350f, #0b1329);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.welcome-bg-blob {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.25) 0%, transparent 70%);
+    z-index: 1;
+    filter: blur(40px);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Animations & Staggered delay for metric cards */
+.dashboard-card {
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+.row > div:nth-child(1) .dashboard-card { animation-delay: 0.05s; }
+.row > div:nth-child(2) .dashboard-card { animation-delay: 0.1s; }
+.row > div:nth-child(3) .dashboard-card { animation-delay: 0.15s; }
+.row > div:nth-child(4) .dashboard-card { animation-delay: 0.2s; }
+
+.dashboard-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.dashboard-card.success:hover {
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+.dashboard-card.info:hover {
+    box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15) !important;
+    border-color: rgba(6, 182, 212, 0.4) !important;
+}
+
+/* Timeline Activity Marker */
+.activity-marker {
+    animation: pulseMarker 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseMarker {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+/* Light mode overrides specifically for driver portal */
+[data-theme="light"] .topbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .dashboard-title h4.text-white {
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .welcome-card {
+    background: linear-gradient(135deg, #fef3c7, #f8fafc) !important;
+    border-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+[data-theme="light"] .welcome-card h2 {
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .welcome-card p {
+    color: #475569 !important;
+}
+
+[data-theme="light"] .table {
+    --bs-table-bg: transparent !important;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.02) !important;
+    color: #334155 !important;
+}
+
+[data-theme="light"] .table tbody tr td {
+    color: #334155 !important;
+}
+
+[data-theme="light"] .table thead tr th {
+    color: #64748b !important;
+}
+
+[data-theme="light"] .activity-item span.text-white {
+    color: #0f172a !important;
+}

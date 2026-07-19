@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notification Details | LogiSphere</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet"
+          th:href="@{/css/notification.css}">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <a th:href="@{/admin/dashboard}" class="btn btn-outline-primary mb-3">← Back to Dashboard</a>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-bell-fill text-primary"></i>
+
+                Notification Details
+
+            </h2>
+
+            <p class="text-muted">
+
+                Complete notification information
+
+            </p>
+
+        </div>
+
+        <a th:href="@{/notifications}"
+           class="btn btn-secondary">
+
+            <i class="bi bi-arrow-left-circle"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body p-5">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+
+                    <h4 class="mb-4">
+
+                        <i class="bi bi-info-circle-fill"></i>
+
+                        Notification Information
+
+                    </h4>
+
+                    <table class="table table-borderless">
+
+                        <tr>
+
+                            <th>Notification ID</th>
+
+                            <td th:text="${notification.notificationId}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Title</th>
+
+                            <td th:text="${notification.title}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Message</th>
+
+                            <td th:text="${notification.message}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Notification Type</th>
+
+                            <td th:text="${notification.notificationType}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Priority</th>
+
+                            <td th:text="${notification.priority}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Status</th>
+
+                            <td th:text="${notification.status}"></td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+                                <div class="col-lg-6">
+
+                    <h4 class="mb-4">
+
+                        <i class="bi bi-person-fill"></i>
+
+                        Recipient Details
+
+                    </h4>
+
+                    <table class="table table-borderless">
+
+                        <tr>
+
+                            <th>Recipient Type</th>
+
+                            <td th:text="${notification.recipientType}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Recipient ID</th>
+
+                            <td th:text="${notification.recipientId}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Recipient Name</th>
+
+                            <td th:text="${notification.recipientName}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Recipient Email</th>
+
+                            <td th:text="${notification.recipientEmail}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Recipient Phone</th>
+
+                            <td th:text="${notification.recipientPhone}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Shipment ID</th>
+
+                            <td th:text="${notification.shipmentId}"></td>
+
+                        </tr>
+
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h4 class="mb-4">
+
+                        <i class="bi bi-send-check-fill"></i>
+
+                        Delivery Status
+
+                    </h4>
+
+                    <table class="table table-borderless">
+
+                        <tr>
+
+                            <th>Email Sent</th>
+
+                            <td>
+
+                                <span th:if="${notification.emailSent}"
+                                      class="badge bg-success">
+
+                                    YES
+
+                                </span>
+
+                                <span th:unless="${notification.emailSent}"
+                                      class="badge bg-danger">
+
+                                    NO
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>SMS Sent</th>
+
+                            <td>
+
+                                <span th:if="${notification.smsSent}"
+                                      class="badge bg-success">
+
+                                    YES
+
+                                </span>
+
+                                <span th:unless="${notification.smsSent}"
+                                      class="badge bg-danger">
+
+                                    NO
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Push Notification</th>
+
+                            <td>
+
+                                <span th:if="${notification.pushSent}"
+                                      class="badge bg-success">
+
+                                    YES
+
+                                </span>
+
+                                <span th:unless="${notification.pushSent}"
+                                      class="badge bg-danger">
+
+                                    NO
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Read Status</th>
+
+                            <td>
+
+                                <span th:if="${notification.isRead}"
+                                      class="badge bg-primary">
+
+                                    READ
+
+                                </span>
+
+                                <span th:unless="${notification.isRead}"
+                                      class="badge bg-warning text-dark">
+
+                                    UNREAD
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Created At</th>
+
+                            <td th:text="${notification.createdAt}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Sent At</th>
+
+                            <td th:text="${notification.sentAt}"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Read At</th>
+
+                            <td th:text="${notification.readAt}"></td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+                        <hr class="my-4">
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="alert alert-primary">
+
+                        <h5 class="mb-2">
+
+                            <i class="bi bi-info-circle-fill"></i>
+
+                            Notification Summary
+
+                        </h5>
+
+                        <p class="mb-0">
+
+                            This notification was sent to
+
+                            <strong th:text="${notification.recipientName}"></strong>
+
+                            regarding
+
+                            <strong th:text="${notification.notificationType}"></strong>
+
+                            with
+
+                            <strong th:text="${notification.priority}"></strong>
+
+                            priority.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+
+                <a th:href="@{/notifications}"
+                   class="btn btn-secondary">
+
+                    <i class="bi bi-arrow-left-circle"></i>
+
+                    Back
+
+                </a>
+
+                <div>
+
+                    <a th:href="@{/notifications/read/{id}(id=${notification.id})}"
+                       class="btn btn-success me-2">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Mark as Read
+
+                    </a>
+
+                    <a th:href="@{/notifications/edit/{id}(id=${notification.id})}"
+                       class="btn btn-warning me-2">
+
+                        <i class="bi bi-pencil-square"></i>
+
+                        Edit
+
+                    </a>
+
+                    <a th:href="@{/notifications/delete/{id}(id=${notification.id})}"
+                       class="btn btn-danger">
+
+                        <i class="bi bi-trash-fill"></i>
+
+                        Delete
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script th:src="@{/js/notification.js}"></script>
+
+</body>
+
+</html>

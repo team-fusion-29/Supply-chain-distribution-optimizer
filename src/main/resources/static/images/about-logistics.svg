@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Decorative Grid Pattern -->
+  <rect x="0" y="0" width="600" height="450" fill="#0b1329" />
+  <g stroke="#1e293b" stroke-width="1" opacity="0.4">
+    <path d="M 50,0 L 50,450 M 150,0 L 150,450 M 250,0 L 250,450 M 350,0 L 350,450 M 450,0 L 450,450 M 550,0 L 550,450" />
+    <path d="M 0,50 L 600,50 M 0,150 L 600,150 M 0,250 L 600,250 M 0,350 L 600,350" />
+  </g>
+
+  <!-- Outer Ring Glows -->
+  <circle cx="300" cy="225" r="160" fill="none" stroke="#2563eb" stroke-opacity="0.1" stroke-width="2" />
+  <circle cx="300" cy="225" r="100" fill="none" stroke="#06b6d4" stroke-opacity="0.1" stroke-width="2" />
+
+  <!-- Center Hub Node -->
+  <g transform="translate(300, 225)">
+    <circle cx="0" cy="0" r="45" fill="url(#hubGrad)" filter="url(#glow)" />
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#2563eb" stroke-opacity="0.5" stroke-width="2" />
+    <!-- Pulse icon (world/network representation) -->
+    <path d="M -15,0 L 15,0 M 0,-15 L 0,15" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#ffffff" stroke-width="2" />
+    <text x="0" y="75" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="700" font-size="14" text-anchor="middle">LOGISPHERE HUB</text>
+  </g>
+
+  <!-- Connected Nodes -->
+  <!-- Node 1: Real-time Tracking (Top Left) -->
+  <g transform="translate(140, 120)">
+    <line x1="30" y1="30" x2="115" y2="75" stroke="url(#lineGrad)" stroke-width="3" />
+    <circle cx="30" cy="30" r="28" fill="#1e293b" stroke="#60a5fa" stroke-width="2" />
+    <!-- Box Icon simplified -->
+    <path d="M 20,20 L 40,20 L 45,30 L 15,30 Z" fill="#60a5fa" />
+    <path d="M 15,30 L 45,30 L 45,42 L 15,42 Z" fill="#3b82f6" />
+    <text x="30" y="75" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="11" text-anchor="middle">TRACKING</text>
+  </g>
+
+  <!-- Node 2: Route Planner (Top Right) -->
+  <g transform="translate(460, 120)">
+    <line x1="-30" y1="30" x2="-115" y2="75" stroke="url(#lineGrad)" stroke-width="3" />
+    <circle cx="-30" cy="30" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <!-- Route Icon simplified -->
+    <path d="M -42,38 L -30,22 L -18,38" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="-30" cy="22" r="4" fill="#ffffff" />
+    <text x="-30" y="75" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="11" text-anchor="middle">DYNAMIC ROUTE</text>
+  </g>
+
+  <!-- Node 3: Weather (Bottom Left) -->
+  <g transform="translate(140, 330)">
+    <line x1="30" y1="-30" x2="115" y2="-75" stroke="url(#lineGrad)" stroke-width="3" />
+    <circle cx="30" cy="-30" r="28" fill="#1e293b" stroke="#a78bfa" stroke-width="2" />
+    <!-- Weather Cloud Icon -->
+    <path d="M 20,-28 C 20,-32 25,-35 29,-35 C 34,-35 38,-31 38,-26 C 41,-26 43,-24 43,-21 C 43,-17 39,-15 35,-15 L 23,-15 C 20,-15 18,-17 18,-21 C 18,-24 20,-24 20,-28 Z" fill="#a78bfa" />
+    <text x="30" y="15" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="11" text-anchor="middle">WEATHER ALERTS</text>
+  </g>
+
+  <!-- Node 4: Notifications (Bottom Right) -->
+  <g transform="translate(460, 330)">
+    <line x1="-30" y1="-30" x2="-115" y2="-75" stroke="url(#lineGrad)" stroke-width="3" />
+    <circle cx="-30" cy="-30" r="28" fill="#1e293b" stroke="#ec4899" stroke-width="2" />
+    <!-- Envelope Icon -->
+    <rect x="-42" y="-38" width="24" height="16" rx="3" fill="#ec4899" />
+    <path d="M -42,-38 L -30,-30 L -18,-38" fill="none" stroke="#ffffff" stroke-width="2" />
+    <text x="-30" y="15" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="11" text-anchor="middle">AUTO NOTIFY</text>
+  </g>
+
+  <!-- Animation Glow Path (Static mockup representation) -->
+  <path d="M 170,150 L 255,195" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="8,8" />
+  <path d="M 430,150 L 345,195" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8,8" />
+</svg>

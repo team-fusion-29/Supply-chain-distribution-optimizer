@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="weatherHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#db2777" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="10" y="10" width="580" height="430" rx="16" fill="url(#cardGrad)" stroke="#334155" stroke-width="2" />
+  
+  <!-- Header Bar -->
+  <rect x="10" y="10" width="580" height="60" rx="16" fill="url(#weatherHeaderGrad)" />
+  <rect x="10" y="54" width="580" height="16" fill="url(#cardGrad)" />
+  
+  <text x="30" y="46" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="800" font-size="18">WEATHER INTELLIGENCE & ALERTS</text>
+  <rect x="440" y="25" width="120" height="30" rx="15" fill="rgba(255, 255, 255, 0.2)" />
+  <text x="455" y="44" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Live Updates</text>
+  <circle cx="538" cy="40" r="5" fill="#ef4444" />
+
+  <!-- Left: Weather Details -->
+  <rect x="30" y="90" width="250" height="310" rx="12" fill="#182235" stroke="#293548" stroke-width="1" />
+  <text x="50" y="125" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="14">Active Alerts (Today)</text>
+
+  <!-- Alert 1 -->
+  <rect x="45" y="145" width="220" height="70" rx="8" fill="rgba(239, 68, 68, 0.15)" stroke="rgba(239, 68, 68, 0.4)" />
+  <path d="M 60,175 L 75,150 L 90,175 Z" fill="#ef4444" />
+  <text x="75" y="171" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="800" text-anchor="middle">!</text>
+  <text x="105" y="170" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Heavy Storm Alert</text>
+  <text x="105" y="190" fill="#fca5a5" font-family="'Inter', sans-serif" font-size="11">Location: Vijayawada</text>
+
+  <!-- Alert 2 -->
+  <rect x="45" y="230" width="220" height="70" rx="8" fill="rgba(234, 179, 8, 0.15)" stroke="rgba(234, 179, 8, 0.4)" />
+  <circle cx="75" cy="265" r="12" fill="#eab308" opacity="0.2" />
+  <circle cx="75" cy="265" r="6" fill="#eab308" />
+  <text x="105" y="255" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Dense Fog Warning</text>
+  <text x="105" y="275" fill="#fef08a" font-family="'Inter', sans-serif" font-size="11">Location: Hyderabad</text>
+
+  <!-- Alert 3 -->
+  <rect x="45" y="315" width="220" height="65" rx="8" fill="rgba(34, 197, 94, 0.15)" stroke="rgba(34, 197, 94, 0.3)" />
+  <circle cx="75" cy="347" r="10" fill="#22c55e" />
+  <path d="M 71,347 L 74,350 L 80,344" fill="none" stroke="#ffffff" stroke-width="2" />
+  <text x="105" y="340" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Clear Weather Route</text>
+  <text x="105" y="358" fill="#bbf7d0" font-family="'Inter', sans-serif" font-size="11">Location: Chennai Hub</text>
+
+  <!-- Right: Weather Analytics / Map Visualization -->
+  <rect x="300" y="90" width="270" height="310" rx="12" fill="#0b1329" stroke="#293548" stroke-width="1" />
+  
+  <!-- Cloud Graphic -->
+  <g transform="translate(370, 120) scale(1.5)">
+    <!-- Sun behind cloud -->
+    <circle cx="65" cy="25" r="18" fill="#eab308" />
+    <!-- Cloud -->
+    <path d="M 25,40 C 25,32 32,25 40,25 C 43,25 46,26 48,28 C 51,22 58,18 65,18 C 75,18 83,25 83,35 C 87,35 91,39 91,44 C 91,50 86,55 80,55 L 30,55 C 24,55 20,50 20,44 C 20,40 23,40 25,40 Z" fill="#94a3b8" />
+    <path d="M 35,62 L 30,70 M 47,62 L 42,70 M 60,62 L 55,70 M 72,62 L 67,70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Dynamic text stats -->
+  <text x="435" y="240" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="800" font-size="28" text-anchor="middle">78%</text>
+  <text x="435" y="260" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">Precipitation Index</text>
+
+  <line x1="330" y1="285" x2="540" y2="285" stroke="#334155" stroke-width="1" />
+
+  <!-- Weather metrics columns -->
+  <text x="360" y="320" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Humidity</text>
+  <text x="360" y="345" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="14">84%</text>
+
+  <text x="440" y="320" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Wind Speed</text>
+  <text x="440" y="345" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="14">24 km/h</text>
+
+  <text x="520" y="320" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Temp</text>
+  <text x="520" y="345" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="14">28°C</text>
+
+  <rect x="330" y="365" width="210" height="25" rx="5" fill="#ef4444" opacity="0.15" />
+  <text x="435" y="382" fill="#ef4444" font-family="'Inter', sans-serif" font-weight="600" font-size="11" text-anchor="middle">Disruption Risk Level: HIGH</text>
+</svg>

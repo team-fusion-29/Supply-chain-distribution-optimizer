@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard | LogiSphere</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/driver-dashboard.css}">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>LogiSphere</span>
+    </div>
+    <ul class="menu">
+        <li class="active">
+            <a th:href="@{/driver/dashboard}">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/#about}">
+                <i class="fa-solid fa-info-circle"></i>
+                About Us
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/#contact}">
+                <i class="fa-solid fa-envelope"></i>
+                Support
+            </a>
+        </li>
+    </ul>
+    <div class="sidebar-footer">
+        <form th:action="@{/logout}" method="post" class="d-inline">
+        <button type="submit" class="logout-btn border-0">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+        </form>
+    </div>
+</div>
+
+<div class="main-content">
+    <!-- Topbar -->
+    <div class="topbar py-3 px-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div class="dashboard-title">
+            <h4 class="text-white fw-bold mb-0">Driver Console</h4>
+        </div>
+        <div class="topbar-actions d-flex align-items-center gap-3">
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="profile-info d-flex align-items-center gap-2">
+                <div class="profile-avatar text-white bg-warning rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">DR</div>
+                <div class="profile-text text-start">
+                    <span class="d-block text-white fw-semibold small" th:text="${driver.fullName}">Driver Name</span>
+                    <span class="d-block text-muted small" style="font-size: 11px;" th:text="${driver.email}">driver@example.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="container-fluid p-4">
+        
+        <!-- Welcome Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="glass-card welcome-card p-5 text-white position-relative overflow-hidden shadow-sm">
+                    <div class="welcome-bg-blob"></div>
+                    <div class="position-relative z-index-2">
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3">Driver Dashboard</span>
+                        <h2 class="fw-bold mb-2">Drive Safe, <span class="gradient-text" th:text="${driver.fullName}">Driver</span>!</h2>
+                        <p class="text-secondary max-width-600 mb-0">Verify your current routes, update shipment delivery statuses immediately upon drops, and check real-time notifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Alert for updates -->
+        <div th:if="${param.success != null}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-circle-check me-2"></i>Shipment status updated successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm warning">
+                    <div class="card-icon bg-warning bg-opacity-25 text-warning"><i class="fa-solid fa-truck"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Assigned Shipments</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${totalAssigned}">5</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm info">
+                    <div class="card-icon bg-info bg-opacity-25 text-info"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Today's Deliveries</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${todayDeliveries}">2</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm success">
+                    <div class="card-icon bg-success bg-opacity-25 text-success"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Completed Deliveries</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${completedDeliveries}">3</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm">
+                    <div class="card-icon bg-primary bg-opacity-25 text-primary"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Pending Deliveries</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${pendingDeliveries}">2</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Status & Profile Overview -->
+        <div class="row g-4 mb-4">
+            <!-- Update Status Form -->
+            <div class="col-lg-5">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-pen-to-square text-warning me-2"></i>Update Cargo Status</h5>
+                    <p class="text-secondary small mb-4">Select a shipment assigned to you and update its current drop status instantly.</p>
+                    
+                    <form th:action="@{/driver/shipments/update-status}" method="post" id="statusUpdateForm">
+                        <div class="mb-3">
+                            <label for="shipmentSelect" class="form-label text-muted small">Select Shipment Tracking No.</label>
+                            <select name="trackingNumber" id="shipmentSelect" class="form-select bg-transparent text-white border-secondary" required>
+                                <option value="" class="text-dark">-- Select tracking number --</option>
+                                <option th:each="shipment : ${shipments}" th:if="${shipment.status != 'DELIVERED'}" th:value="${shipment.trackingNumber}" th:text="${shipment.trackingNumber + ' (' + shipment.destination + ')'}" class="text-dark">LS-1029</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="statusSelect" class="form-label text-muted small">New Status</label>
+                            <select name="status" id="statusSelect" class="form-select bg-transparent text-white border-secondary" required>
+                                <option value="IN_TRANSIT" class="text-dark">In Transit</option>
+                                <option value="DELIVERED" class="text-dark">Delivered</option>
+                                <option value="PENDING" class="text-dark">Pending</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100 mt-2 d-flex align-items-center justify-content-center gap-2">
+                            <span>Update Drop Status</span>
+                            <div class="spinner-border spinner-border-sm d-none" id="statusSpinner" role="status"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Details Card -->
+            <div class="col-lg-7">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-4"><i class="fa-solid fa-id-badge text-warning me-2"></i>Driver Credentials</h5>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Full Name</span>
+                            <span class="text-white fw-semibold" th:text="${driver.fullName}">Driver Name</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Driver System ID</span>
+                            <span class="text-white fw-semibold" th:text="${driver.driverId}">DRV-1029</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">License Identifier</span>
+                            <span class="text-white fw-semibold" th:text="${driver.licenseNumber}">LIC-9419</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Phone Number</span>
+                            <span class="text-white fw-semibold" th:text="${driver.phone}">+91 99999 88888</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Assigned Transit Vehicle</span>
+                            <span class="text-white fw-semibold text-warning" th:text="${driver.assignedVehicle != null ? driver.assignedVehicle : 'No vehicle assigned'}">TS-09-EF-8419</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Current Duty Status</span>
+                            <span class="badge bg-success" th:text="${driver.status}">Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assigned Shipments List -->
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="glass-card p-4">
+                    <h5 class="text-white fw-bold mb-4">Assigned Cargo Deliveries</h5>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover table-borderless align-middle mb-0" id="driverShipmentsTable">
+                            <thead>
+                                <tr class="text-muted border-bottom border-secondary border-opacity-50">
+                                    <th>Tracking Number</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Expected Delivery</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="shipment : ${shipments}">
+                                    <td class="fw-semibold text-white" th:text="${shipment.trackingNumber}">LS-12345</td>
+                                    <td class="text-secondary" th:text="${shipment.source}">Hyderabad</td>
+                                    <td class="text-secondary" th:text="${shipment.destination}">Vijayawada</td>
+                                    <td class="text-secondary" th:text="${#temporals.format(shipment.expectedDeliveryDate, 'dd MMM yyyy')}">18 Jul 2026</td>
+                                    <td>
+                                        <span class="badge bg-danger-subtle text-danger" th:if="${shipment.priority == 'HIGH'}">High</span>
+                                        <span class="badge bg-primary-subtle text-primary" th:if="${shipment.priority == 'MEDIUM'}">Medium</span>
+                                        <span class="badge bg-secondary-subtle text-secondary" th:if="${shipment.priority == 'LOW'}">Low</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill" th:if="${shipment.status == 'DELIVERED'}">Delivered</span>
+                                        <span class="badge bg-warning-subtle text-warning px-2 py-1 rounded-pill" th:if="${shipment.status == 'IN_TRANSIT'}">In Transit</span>
+                                        <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill" th:if="${shipment.status == 'PENDING'}">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr th:if="${shipments.empty}">
+                                    <td colspan="6" class="text-center text-muted">No cargo deliveries assigned.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Feed -->
+            <div class="col-lg-4">
+                <div class="glass-card p-4">
+                    <h5 class="text-white fw-bold mb-4">Dispatcher Operations Feed</h5>
+                    <div class="activity-timeline">
+                        <div class="activity-item d-flex gap-3 mb-3" th:each="notif : ${latestNotifications}">
+                            <div class="activity-marker bg-warning bg-opacity-25 text-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; flex-shrink: 0;">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div>
+                                <span class="text-white fw-semibold d-block" th:text="${notif.message}">Your order is dispatched.</span>
+                                <span class="text-muted small" th:text="${#temporals.format(notif.createdAt, 'dd MMM yyyy HH:mm')}">16 Jul 2026 21:00</span>
+                            </div>
+                        </div>
+                        <div th:if="${latestNotifications.empty}" class="text-center text-muted py-3">No operational logs found.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/driver-dashboard.js}"></script>
+</body>
+</html>

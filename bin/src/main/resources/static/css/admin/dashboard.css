@@ -1,0 +1,66 @@
+/* Admin Dashboard Premium Styles */
+.topbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.profile-avatar {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Light mode overrides specifically for admin dash */
+[data-theme="light"] .topbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .profile-text span.text-white {
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .table {
+    --bs-table-bg: transparent !important;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.02) !important;
+    color: #334155 !important;
+}
+
+[data-theme="light"] .table tbody tr td {
+    color: #334155 !important;
+}
+
+[data-theme="light"] .table thead tr th {
+    color: #64748b !important;
+}
+
+[data-theme="light"] .list-group-item {
+    color: #334155 !important;
+}
+
+[data-theme="light"] .list-group-item span.text-white {
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .activity-item span.text-white {
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .btn-outline-custom {
+    color: #475569 !important;
+    border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] .btn-outline-custom:hover {
+    background: rgba(15, 23, 42, 0.04) !important;
+}

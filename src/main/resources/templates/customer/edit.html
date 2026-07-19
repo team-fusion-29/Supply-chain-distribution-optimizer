@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Customer | LogiSphere</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet"
+          th:href="@{/css/customer.css}">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <a th:href="@{/admin/dashboard}" class="btn btn-outline-primary mb-3">← Back to Dashboard</a>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-pencil-square text-warning"></i>
+
+                Edit Customer
+
+            </h2>
+
+            <p class="text-muted">
+
+                Update Customer Information
+
+            </p>
+
+        </div>
+
+        <a th:href="@{/customers}"
+           class="btn btn-secondary">
+
+            <i class="bi bi-arrow-left-circle"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body p-5">
+
+            <form th:action="@{/customers/update}"
+                  th:object="${customer}"
+                  method="post">
+
+                <input type="hidden"
+                       th:field="*{id}">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Customer ID</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{customerId}"
+                               readonly>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Full Name</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{fullName}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Email</label>
+
+                        <input type="email"
+                               class="form-control"
+                               th:field="*{email}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Phone</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{phone}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Password</label>
+
+                        <input type="password"
+                               class="form-control"
+                               th:field="*{password}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Company Name</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{companyName}">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">GST Number</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{gstNumber}">
+
+                    </div>
+                                        <div class="col-md-12 mb-3">
+
+                        <label class="form-label">Address</label>
+
+                        <textarea class="form-control"
+                                  rows="3"
+                                  th:field="*{address}"></textarea>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">City</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{city}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">State</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{state}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Country</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{country}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Pincode</label>
+
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{pincode}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Customer Type</label>
+
+                        <select class="form-select"
+                                th:field="*{customerType}">
+
+                            <option value="INDIVIDUAL">Individual</option>
+
+                            <option value="BUSINESS">Business</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Business Category</label>
+
+                        <select class="form-select"
+                                th:field="*{businessCategory}">
+
+                            <option value="E-Commerce">E-Commerce</option>
+
+                            <option value="Manufacturing">Manufacturing</option>
+
+                            <option value="Retail">Retail</option>
+
+                            <option value="Healthcare">Healthcare</option>
+
+                            <option value="Electronics">Electronics</option>
+
+                            <option value="Food">Food</option>
+
+                            <option value="Others">Others</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Status</label>
+
+                        <select class="form-select"
+                                th:field="*{status}">
+
+                            <option value="ACTIVE">ACTIVE</option>
+
+                            <option value="INACTIVE">INACTIVE</option>
+
+                            <option value="BLOCKED">BLOCKED</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Total Shipments</label>
+
+                        <input type="number"
+                               class="form-control"
+                               th:field="*{totalShipments}"
+                               min="0">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Active Shipments</label>
+
+                        <input type="number"
+                               class="form-control"
+                               th:field="*{activeShipments}"
+                               min="0">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Completed Shipments</label>
+
+                        <input type="number"
+                               class="form-control"
+                               th:field="*{completedShipments}"
+                               min="0">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label">Cancelled Shipments</label>
+
+                        <input type="number"
+                               class="form-control"
+                               th:field="*{cancelledShipments}"
+                               min="0">
+
+                    </div>
+                                        <div class="col-12 mt-4 d-flex justify-content-between">
+
+                        <a th:href="@{/customers}"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left-circle"></i>
+
+                            Back
+
+                        </a>
+
+                        <div>
+
+                            <button type="reset"
+                                    class="btn btn-warning me-2">
+
+                                <i class="bi bi-arrow-clockwise"></i>
+
+                                Reset
+
+                            </button>
+
+                            <button type="submit"
+                                    class="btn btn-success">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Update Customer
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script th:src="@{/js/customer.js}"></script>
+
+</body>
+
+</html>

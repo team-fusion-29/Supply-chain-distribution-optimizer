@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | LogiSphere</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/dashboard.css}">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>LogiSphere</span>
+    </div>
+    <ul class="menu">
+        <li class="active">
+            <a th:href="@{/dashboard}">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/shipments}">
+                <i class="fa-solid fa-box"></i>
+                Shipments
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/customers}">
+                <i class="fa-solid fa-users"></i>
+                Customers
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/drivers}">
+                <i class="fa-solid fa-id-card"></i>
+                Drivers
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/vehicles}">
+                <i class="fa-solid fa-truck"></i>
+                Vehicles
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/warehouses}">
+                <i class="fa-solid fa-warehouse"></i>
+                Warehouses
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/routes}">
+                <i class="fa-solid fa-route"></i>
+                Route Planner
+            </a>
+        </li>
+    </ul>
+    <div class="sidebar-footer">
+        <a th:href="@{/logout}" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
+</div>
+
+<div class="main-content">
+    <!-- Topbar -->
+    <div class="topbar py-3 px-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="adminSearchInput" placeholder="Search statistics, logs...">
+        </div>
+        <div class="topbar-actions d-flex align-items-center gap-3">
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="profile-info d-flex align-items-center gap-2">
+                <div class="profile-avatar text-white bg-primary rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">AD</div>
+                <div class="profile-text text-start">
+                    <span class="d-block text-white fw-semibold small" th:text="${user.firstName + ' ' + user.lastName}">Admin Name</span>
+                    <span class="d-block text-muted small" style="font-size: 11px;">Administrator</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content Area -->
+    <div class="container-fluid p-4">
+        
+        <!-- Metrics Grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm">
+                    <div class="card-icon bg-primary bg-opacity-25 text-primary"><i class="fa-solid fa-box"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Total Shipments</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${totalShipments}">1,200</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm success">
+                    <div class="card-icon bg-success bg-opacity-25 text-success"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Delivered</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${deliveredShipments}">800</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm warning">
+                    <div class="card-icon bg-warning bg-opacity-25 text-warning"><i class="fa-solid fa-clock"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">In Transit</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${inTransitShipments}">350</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm info">
+                    <div class="card-icon bg-info bg-opacity-25 text-info"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Total Revenue</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${#numbers.formatDecimal(totalRevenue, 1, 'COMMA', 2, 'POINT')}">15,000.00</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Area -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-4">Monthly Delivery Efficiency</h5>
+                    <div class="chart-container" style="position: relative; height:280px; width:100%">
+                        <canvas id="deliveryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-4">Vehicle Operations</h5>
+                    <div class="chart-container d-flex justify-content-center align-items-center" style="position: relative; height:280px; width:100%">
+                        <canvas id="vehicleChart"
+                                th:data-active="${activeVehicles}"
+                                th:data-service="${inServiceVehicles}"
+                                th:data-maintenance="${maintenanceVehicles}"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="row g-4">
+            <!-- Latest Shipments Table -->
+            <div class="col-xl-6">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="text-white fw-bold mb-0">Latest Shipments</h5>
+                        <a th:href="@{/shipments}" class="btn btn-sm btn-outline-custom">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover table-borderless align-middle mb-0">
+                            <thead>
+                                <tr class="text-muted border-bottom border-secondary border-opacity-50">
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Destination</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="shipment : ${recentShipments}">
+                                    <td class="fw-semibold text-white" th:text="${shipment.trackingNumber}">LS-1029</td>
+                                    <td class="text-secondary" th:text="${shipment.customerName}">DHL Client</td>
+                                    <td class="text-secondary" th:text="${shipment.destination}">Vijayawada</td>
+                                    <td>
+                                        <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill small" th:if="${shipment.status == 'DELIVERED'}">Delivered</span>
+                                        <span class="badge bg-warning-subtle text-warning px-2 py-1 rounded-pill small" th:if="${shipment.status == 'IN_TRANSIT'}">In Transit</span>
+                                        <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill small" th:if="${shipment.status == 'PENDING'}">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr th:if="${recentShipments.empty}">
+                                    <td colspan="4" class="text-center text-muted">No recent shipments logged.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Customers & Drivers -->
+            <div class="col-xl-6">
+                <div class="row g-4 h-100">
+                    <!-- Customers -->
+                    <div class="col-md-6">
+                        <div class="glass-card p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="text-white fw-bold mb-0">Latest Customers</h5>
+                                <a th:href="@{/customers}" class="btn btn-sm btn-outline-custom">View</a>
+                            </div>
+                            <div class="list-group list-group-flush bg-transparent">
+                                <div class="list-group-item bg-transparent text-white border-secondary border-opacity-25 px-0 d-flex align-items-center justify-content-between" th:each="customer : ${latestCustomers}">
+                                    <div>
+                                        <span class="fw-semibold d-block" th:text="${customer.fullName}">John Doe</span>
+                                        <span class="text-muted small" th:text="${customer.companyName}">DHL Inc.</span>
+                                    </div>
+                                    <span class="badge bg-primary-subtle text-primary" th:text="${customer.status}">Active</span>
+                                </div>
+                                <div th:if="${latestCustomers.empty}" class="text-center py-3 text-muted">No customers registered.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drivers -->
+                    <div class="col-md-6">
+                        <div class="glass-card p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="text-white fw-bold mb-0">Active Drivers</h5>
+                                <a th:href="@{/drivers}" class="btn btn-sm btn-outline-custom">View</a>
+                            </div>
+                            <div class="list-group list-group-flush bg-transparent">
+                                <div class="list-group-item bg-transparent text-white border-secondary border-opacity-25 px-0 d-flex align-items-center justify-content-between" th:each="driver : ${latestDrivers}">
+                                    <div>
+                                        <span class="fw-semibold d-block" th:text="${driver.fullName}">R. Sharma</span>
+                                        <span class="text-muted small" th:text="${driver.status}">Available</span>
+                                    </div>
+                                    <span class="badge bg-success-subtle text-success" th:if="${driver.status == 'AVAILABLE'}">Ready</span>
+                                    <span class="badge bg-warning-subtle text-warning" th:if="${driver.status == 'ON_TRIP'}">On Trip</span>
+                                </div>
+                                <div th:if="${latestDrivers.empty}" class="text-center py-3 text-muted">No drivers registered.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications / Feed Activity -->
+            <div class="col-12 mt-4">
+                <div class="glass-card p-4">
+                    <h5 class="text-white fw-bold mb-4">System Event Activity & Notifications</h5>
+                    <div class="activity-timeline">
+                        <div class="activity-item d-flex gap-3 mb-3" th:each="notif : ${latestNotifications}">
+                            <div class="activity-marker bg-primary bg-opacity-25 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; flex-shrink: 0;">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div>
+                                <span class="text-white fw-semibold d-block" th:text="${notif.message}">New shipment logged successfully.</span>
+                                <span class="text-muted small" th:text="${#temporals.format(notif.createdAt, 'dd MMM yyyy HH:mm')}">16 Jul 2026 21:00</span>
+                            </div>
+                        </div>
+                        <div th:if="${latestNotifications.empty}" class="text-center text-muted py-3">No recent notifications logged.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/admin/dashboard.js}"></script>
+</body>
+</html>

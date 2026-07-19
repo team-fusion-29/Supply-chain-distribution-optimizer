@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e4ed8" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dashboard Shadow & Border -->
+  <rect x="10" y="10" width="580" height="430" rx="16" fill="url(#cardGrad)" stroke="#334155" stroke-width="2" />
+  
+  <!-- Header Bar -->
+  <rect x="10" y="10" width="580" height="60" rx="16" fill="url(#headerGrad)" />
+  <!-- Round top corners of header to match background card -->
+  <rect x="10" y="54" width="580" height="16" fill="url(#cardGrad)" />
+  
+  <text x="30" y="46" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="800" font-size="18">SHIPMENT TRACKING SYSTEM</text>
+  <rect x="470" y="25" width="90" height="30" rx="15" fill="rgba(255, 255, 255, 0.2)" />
+  <text x="490" y="44" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Active</text>
+  <circle cx="545" cy="40" r="5" fill="#22c55e" />
+
+  <!-- Info Grid -->
+  <!-- Left Box: Route Details -->
+  <rect x="30" y="90" width="250" height="180" rx="12" fill="#182235" stroke="#293548" stroke-width="1" />
+  <text x="50" y="125" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="14">Tracking Details</text>
+  <text x="50" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Shipment ID: LS-90384-IN</text>
+  <text x="50" y="180" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Source: Hyderabad Hub</text>
+  <text x="50" y="205" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Destination: Vijayawada</text>
+  <text x="50" y="230" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Driver: A. Kumar</text>
+  <text x="50" y="255" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Vehicle: TS-09-EX-4819</text>
+
+  <!-- Right Box: Map View mock -->
+  <rect x="310" y="90" width="260" height="180" rx="12" fill="#0b1329" stroke="#293548" stroke-width="1" />
+  <!-- Map Roads -->
+  <path d="M 330,220 C 380,180 430,230 480,130 C 530,130 550,110 550,110" fill="none" stroke="#334155" stroke-dasharray="6,4" stroke-width="6" />
+  <path d="M 330,220 C 380,180 430,230 480,130" fill="none" stroke="#2563eb" stroke-width="4" />
+  <!-- Pulse dots on map -->
+  <circle cx="330" cy="220" r="6" fill="#ef4444" />
+  <circle cx="480" cy="130" r="8" fill="#38bdf8" />
+  <circle cx="480" cy="130" r="16" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.5" />
+  <circle cx="430" cy="190" r="6" fill="#eab308" />
+  <text x="445" y="194" fill="#eab308" font-family="'Inter', sans-serif" font-weight="600" font-size="10">Truck location</text>
+
+  <!-- Progress Bar Timeline -->
+  <rect x="30" y="290" width="540" height="120" rx="12" fill="#182235" stroke="#293548" stroke-width="1" />
+  <text x="50" y="320" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="14">Delivery Status Timeline</text>
+  
+  <!-- Line -->
+  <line x1="70" y1="360" x2="510" y2="360" stroke="#334155" stroke-width="4" />
+  <line x1="70" y1="360" x2="363" y2="360" stroke="#22c55e" stroke-width="4" />
+
+  <!-- Steps -->
+  <!-- Step 1: Dispatched -->
+  <circle cx="70" cy="360" r="12" fill="#22c55e" />
+  <circle cx="70" cy="360" r="6" fill="#ffffff" />
+  <text x="70" y="390" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Dispatched</text>
+
+  <!-- Step 2: Transit -->
+  <circle cx="216" cy="360" r="12" fill="#22c55e" />
+  <circle cx="216" cy="360" r="6" fill="#ffffff" />
+  <text x="216" y="390" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">In Transit</text>
+
+  <!-- Step 3: Out for Delivery -->
+  <circle cx="363" cy="360" r="12" fill="#22c55e" />
+  <path d="M 358,360 L 362,364 L 368,356" fill="none" stroke="#ffffff" stroke-width="2" />
+  <text x="363" y="390" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Out for Delivery</text>
+
+  <!-- Step 4: Delivered -->
+  <circle cx="510" cy="360" r="12" fill="#334155" />
+  <circle cx="510" cy="360" r="4" fill="#475569" />
+  <text x="510" y="390" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Delivered</text>
+</svg>

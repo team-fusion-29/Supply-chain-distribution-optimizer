@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside th:fragment="sidebar" class="bg-white border-end min-vh-100 p-3">
+    <a class="d-flex align-items-center gap-2 text-decoration-none text-dark fw-bold mb-4" th:href="@{/admin/dashboard}">
+        <span>LogiSphere</span>
+    </a>
+    <nav class="nav flex-column gap-1">
+        <a class="nav-link text-dark" th:href="@{/admin/dashboard}">Dashboard</a>
+        <a class="nav-link text-dark" th:href="@{/shipments}">Shipments</a>
+        <a class="nav-link text-dark" th:href="@{/drivers}">Drivers</a>
+        <a class="nav-link text-dark" th:href="@{/vehicles}">Vehicles</a>
+        <a class="nav-link text-dark" th:href="@{/warehouses}">Warehouses</a>
+        <a class="nav-link text-dark" th:href="@{/routes}">Routes</a>
+        <a class="nav-link active" th:href="@{/weather}">Weather</a>
+        <a class="nav-link text-dark" th:href="@{/notifications}">Notifications</a>
+        <a class="nav-link text-dark" th:href="@{/contact/admin/messages}">Contact messages</a>
+    </nav>
+</aside>
+</body>
+</html>

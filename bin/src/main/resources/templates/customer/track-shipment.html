@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment | LogiSphere</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/animations.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/customer.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Issue 1: Fix overlapping navbar by pushing the main content down */
+        .track-shipment-main {
+            margin-top: 90px !important;
+        }
+        @media (max-width: 991.98px) {
+            .track-shipment-main {
+                margin-top: 80px !important;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .track-shipment-main {
+                margin-top: 70px !important;
+            }
+        }
+
+        /* Issue 2: Change 'Ready to Track' heading to black */
+        .ready-to-track-title {
+            color: #000000 !important;
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<!-- Main Area -->
+<main class="container py-5 mt-5 min-vh-100 track-shipment-main">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5 mt-4">
+            <h1 class="gradient-text display-5 fw-bold">Track Your Shipment</h1>
+            <p class="text-secondary fs-5">Get instant real-time updates on your packages and cargo shipments globally.</p>
+        </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <div class="glass-card p-4">
+                <form th:action="@{/track}" method="get" class="d-flex gap-2" id="trackingForm">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-secondary text-secondary"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" name="trackingNumber" id="trackingInput" class="form-control bg-transparent text-white border-secondary" placeholder="Enter tracking number (e.g., LS-12345)" th:value="${searchedNumber}" required>
+                    </div>
+                    <button type="submit" class="btn btn-custom px-4 d-flex align-items-center gap-2">
+                        <span>Track</span>
+                        <div class="spinner-border spinner-border-sm d-none" id="trackingSpinner" role="status"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result / Details State -->
+    <div class="row justify-content-center" th:if="${shipment != null}">
+        <div class="col-lg-8">
+            <div class="glass-card p-5 mb-4 animate-fade-in">
+                <div class="d-flex justify-content-between align-items-start border-bottom border-secondary pb-4 mb-4 flex-wrap gap-3">
+                    <div>
+                        <span class="text-muted text-uppercase small tracking-wider">Tracking Number</span>
+                        <h3 class="text-white mb-0 mt-1" th:text="${shipment.trackingNumber}">LS-12345</h3>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-muted text-uppercase small tracking-wider">Current Status</span>
+                        <div class="mt-1">
+                            <span class="badge bg-success px-3 py-2 rounded-pill fs-6" th:if="${shipment.status == 'DELIVERED'}">Delivered</span>
+                            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6" th:if="${shipment.status == 'IN_TRANSIT'}">In Transit</span>
+                            <span class="badge bg-info px-3 py-2 rounded-pill fs-6" th:if="${shipment.status == 'PENDING'}">Pending</span>
+                            <span class="badge bg-danger px-3 py-2 rounded-pill fs-6" th:if="${shipment.status == 'CANCELLED'}">Cancelled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Visual -->
+                <div class="tracking-progress-wrapper mb-5 mt-4">
+                    <div class="tracking-line">
+                        <!-- Colored subline based on status -->
+                        <div class="tracking-line-fill" th:style="${shipment.status == 'DELIVERED'} ? 'width: 100%' : (${shipment.status == 'IN_TRANSIT'} ? 'width: 50%' : 'width: 0%')"></div>
+                    </div>
+                    
+                    <div class="tracking-steps-container d-flex justify-content-between">
+                        <!-- Step 1 -->
+                        <div class="step-point text-center active">
+                            <div class="step-dot"><i class="fa-solid fa-box-open"></i></div>
+                            <span class="step-label text-white mt-2 d-block small">Order Logged</span>
+                            <span class="step-time text-muted small" th:text="${#temporals.format(shipment.createdAt, 'dd MMM yyyy')}">16 Jul 2026</span>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-point text-center" th:classappend="${shipment.status == 'IN_TRANSIT' or shipment.status == 'DELIVERED'} ? 'active' : ''">
+                            <div class="step-dot"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                            <span class="step-label text-white mt-2 d-block small">In Transit</span>
+                            <span class="step-time text-muted small" th:if="${shipment.shipmentDate != null}" th:text="${#temporals.format(shipment.shipmentDate, 'dd MMM yyyy')}">16 Jul 2026</span>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-point text-center" th:classappend="${shipment.status == 'DELIVERED'} ? 'active' : ''">
+                            <div class="step-dot"><i class="fa-solid fa-house-chimney-user"></i></div>
+                            <span class="step-label text-white mt-2 d-block small">Delivered</span>
+                            <span class="step-time text-muted small" th:if="${shipment.status == 'DELIVERED'}" th:text="${#temporals.format(shipment.updatedAt, 'dd MMM yyyy')}">16 Jul 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Stats Grid -->
+                <div class="row g-4 mt-2">
+                    <div class="col-md-6">
+                        <div class="info-details-box p-3 rounded bg-dark bg-opacity-25 border border-secondary border-opacity-50">
+                            <span class="text-muted small">Origin</span>
+                            <p class="text-white mb-0 fw-semibold mt-1" th:text="${shipment.source}">Hyderabad, India</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-details-box p-3 rounded bg-dark bg-opacity-25 border border-secondary border-opacity-50">
+                            <span class="text-muted small">Destination</span>
+                            <p class="text-white mb-0 fw-semibold mt-1" th:text="${shipment.destination}">Vijayawada, India</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-details-box p-3 rounded bg-dark bg-opacity-25 border border-secondary border-opacity-50">
+                            <span class="text-muted small">Assigned Carrier / Driver</span>
+                            <p class="text-white mb-0 fw-semibold mt-1" th:text="${shipment.driverName}">A. Kumar</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-details-box p-3 rounded bg-dark bg-opacity-25 border border-secondary border-opacity-50">
+                            <span class="text-muted small">Estimated Delivery</span>
+                            <p class="text-white mb-0 fw-semibold mt-1" th:text="${#temporals.format(shipment.expectedDeliveryDate, 'dd MMM yyyy')}">18 Jul 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="row justify-content-center" th:if="${error != null}">
+        <div class="col-lg-8">
+            <div class="glass-card p-5 text-center alert-card border-danger border-opacity-50 animate-fade-in">
+                <div class="error-icon text-danger mb-4 fs-1">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-white fw-bold mb-2">Shipment Not Found</h3>
+                <p class="text-secondary" th:text="${error}">We couldn't locate any active shipment matching the tracking number provided.</p>
+                <div class="mt-4">
+                    <a href="/track" class="btn btn-outline-custom">Clear Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initial Empty State -->
+    <div class="row justify-content-center" th:if="${shipment == null and error == null}">
+        <div class="col-lg-8">
+            <div class="glass-card p-5 text-center empty-state-card animate-fade-in">
+                <div class="empty-icon text-primary mb-4 fs-1">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3 class="text-white fw-bold mb-2 ready-to-track-title">Ready to Track</h3>
+                <p class="text-secondary">Enter your 10-digit shipment number in the field above to see dispatch details, route checkpoints, and delivery updates.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/customer.js}"></script>
+</body>
+</html>

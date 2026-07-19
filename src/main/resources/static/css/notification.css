@@ -1,0 +1,593 @@
+body {
+
+    background: #f5f7fb;
+
+    font-family: "Poppins", sans-serif;
+
+    color: #2c3e50;
+
+}
+
+.notification-container {
+
+    width: 95%;
+
+    max-width: 1400px;
+
+    margin: 40px auto;
+
+}
+
+.page-header {
+
+    margin-bottom: 35px;
+
+}
+
+.page-header h2 {
+
+    font-weight: 700;
+
+    color: #0d6efd;
+
+}
+
+.page-header p {
+
+    color: #6c757d;
+
+    margin-top: 8px;
+
+}
+
+.notification-card,
+
+.card {
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+.dashboard-card {
+
+    background: linear-gradient(135deg, #0d6efd, #3b82f6);
+
+    color: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    transition: .3s;
+
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+.dashboard-card h6 {
+
+    opacity: .9;
+
+    margin-bottom: 12px;
+
+}
+
+.dashboard-card h2 {
+
+    font-weight: 700;
+
+}
+
+.dashboard-card.success {
+
+    background: linear-gradient(135deg,#198754,#20c997);
+
+}
+
+.dashboard-card.warning {
+
+    background: linear-gradient(135deg,#ffc107,#fd7e14);
+
+    color: #212529;
+
+}
+
+.dashboard-card.danger {
+
+    background: linear-gradient(135deg,#dc3545,#ff4d6d);
+
+}
+
+.form-control,
+
+.form-select {
+
+    border-radius: 10px;
+
+    border: 1px solid #dee2e6;
+
+    padding: 12px;
+
+}
+
+.form-control:focus,
+
+.form-select:focus {
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 8px rgba(13,110,253,.25);
+
+}
+.table {
+
+    margin-bottom: 0;
+
+}
+
+.table thead {
+
+    background: #0d6efd;
+
+    color: #ffffff;
+
+}
+
+.table thead th {
+
+    border: none;
+
+    padding: 15px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+
+    letter-spacing: .5px;
+
+}
+
+.table tbody td {
+
+    padding: 14px;
+
+    vertical-align: middle;
+
+    border-color: #edf2f7;
+
+}
+
+.table tbody tr {
+
+    transition: .3s;
+
+}
+
+.table tbody tr:hover {
+
+    background: #f8fbff;
+
+}
+
+.table-borderless th {
+
+    width: 220px;
+
+    font-weight: 600;
+
+    color: #495057;
+
+}
+
+.table-borderless td {
+
+    color: #212529;
+
+}
+
+.btn {
+
+    border-radius: 10px;
+
+    padding: 10px 22px;
+
+    font-weight: 600;
+
+    transition: all .3s ease;
+
+}
+
+.btn i {
+
+    margin-right: 6px;
+
+}
+
+.btn-primary:hover,
+
+.btn-success:hover,
+
+.btn-warning:hover,
+
+.btn-danger:hover,
+
+.btn-secondary:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(0,0,0,.15);
+
+}
+
+.btn-outline-primary,
+
+.btn-outline-success,
+
+.btn-outline-warning,
+
+.btn-outline-danger,
+
+.btn-outline-secondary {
+
+    border-width: 2px;
+
+}
+
+.badge {
+
+    padding: 8px 14px;
+
+    font-size: .78rem;
+
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    letter-spacing: .3px;
+
+}
+
+.alert {
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 18px 22px;
+
+}
+
+.alert-primary {
+
+    background: rgba(13,110,253,.10);
+
+    color: #0d6efd;
+
+}
+
+.alert-success {
+
+    background: rgba(25,135,84,.10);
+
+    color: #198754;
+
+}
+
+.alert-warning {
+
+    background: rgba(255,193,7,.15);
+
+    color: #856404;
+
+}
+
+.alert-danger {
+
+    background: rgba(220,53,69,.10);
+
+    color: #dc3545;
+
+}
+
+.notification-card:hover,
+
+.card:hover {
+
+    transform: translateY(-4px);
+
+    transition: .3s ease;
+
+    box-shadow: 0 16px 35px rgba(0,0,0,.12);
+
+}
+
+.card-header {
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #edf2f7;
+
+    font-weight: 600;
+
+}
+
+.card-title {
+
+    margin-bottom: 0;
+
+    color: #0d6efd;
+
+}
+
+.text-muted {
+
+    color: #6c757d !important;
+
+}
+
+hr {
+
+    opacity: .12;
+
+}
+.status-success {
+
+    color: #198754;
+
+    font-weight: 600;
+
+}
+
+.status-warning {
+
+    color: #fd7e14;
+
+    font-weight: 600;
+
+}
+
+.status-danger {
+
+    color: #dc3545;
+
+    font-weight: 600;
+
+}
+
+.status-primary {
+
+    color: #0d6efd;
+
+    font-weight: 600;
+
+}
+
+.dashboard-card,
+
+.notification-card,
+
+.card,
+
+.btn,
+
+.badge,
+
+.alert {
+
+    animation: fadeInUp .5s ease;
+
+}
+
+@keyframes fadeInUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #f1f3f5;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #0d6efd;
+
+    border-radius: 20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #0b5ed7;
+
+}
+
+.table-responsive {
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+}
+
+.card h4,
+
+.card h5,
+
+.card h6 {
+
+    font-weight: 700;
+
+    color: #2c3e50;
+
+}
+
+.card p {
+
+    color: #6c757d;
+
+}
+
+.form-label {
+
+    font-weight: 600;
+
+    color: #495057;
+
+}
+
+a {
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+a:hover {
+
+    text-decoration: none;
+
+}
+
+@media (max-width: 992px) {
+
+    .notification-container {
+
+        width: 98%;
+
+        margin: 25px auto;
+
+    }
+
+    .dashboard-card {
+
+        margin-bottom: 20px;
+
+    }
+
+    .d-flex.justify-content-between {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+    .d-flex.justify-content-between > div {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .table {
+
+        font-size: 14px;
+
+    }
+
+    .table-borderless th,
+
+    .table-borderless td {
+
+        display: block;
+
+        width: 100%;
+
+    }
+
+    .table-borderless th {
+
+        padding-bottom: 4px;
+
+    }
+
+    .table-borderless td {
+
+        padding-bottom: 16px;
+
+    }
+
+    .btn {
+
+        width: 100%;
+
+    }
+
+    .dashboard-card {
+
+        text-align: center;
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .page-header {
+
+        text-align: center;
+
+    }
+
+    .page-header h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+    .card {
+
+        border-radius: 12px;
+
+    }
+
+    .dashboard-card {
+
+        padding: 20px;
+
+    }
+
+}

@@ -1,0 +1,514 @@
+2026-07-18T10:49:35.873+05:30  INFO 15924 --- [LogiSphere] [main] com.example.demo.LogiSphereApplication   : Starting LogiSphereApplication v0.0.1-SNAPSHOT using Java 21.0.11 with PID 15924 (C:\Users\pabbu\Documents\Codex\2026-07-18\you-are-a-senior-java-full\work\LogiSphere\LogiSphere\target\LogiSphere-0.0.1-SNAPSHOT.jar started by pabbu in C:\Users\pabbu\Documents\Codex\2026-07-18\you-are-a-senior-java-full\work\LogiSphere\LogiSphere)
+2026-07-18T10:49:35.883+05:30  INFO 15924 --- [LogiSphere] [main] com.example.demo.LogiSphereApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-07-18T10:49:37.825+05:30  INFO 15924 --- [LogiSphere] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-18T10:49:38.005+05:30  INFO 15924 --- [LogiSphere] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 160 ms. Found 10 JPA repository interfaces.
+2026-07-18T10:49:39.609+05:30  INFO 15924 --- [LogiSphere] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-18T10:49:39.641+05:30  INFO 15924 --- [LogiSphere] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-18T10:49:39.642+05:30  INFO 15924 --- [LogiSphere] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-18T10:49:39.715+05:30  INFO 15924 --- [LogiSphere] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3692 ms
+2026-07-18T10:49:40.558+05:30  INFO 15924 --- [LogiSphere] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-18T10:49:40.715+05:30  INFO 15924 --- [LogiSphere] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-18T10:49:41.642+05:30  INFO 15924 --- [LogiSphere] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-18T10:49:41.692+05:30  INFO 15924 --- [LogiSphere] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-18T10:49:41.942+05:30  INFO 15924 --- [LogiSphere] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ba86c53
+2026-07-18T10:49:41.944+05:30  INFO 15924 --- [LogiSphere] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-18T10:49:41.997+05:30  WARN 15924 --- [LogiSphere] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-18T10:49:42.023+05:30  INFO 15924 --- [LogiSphere] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/logisphere?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: logisphere/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-18T10:49:43.509+05:30  INFO 15924 --- [LogiSphere] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-18T10:49:43.597+05:30  INFO 15924 --- [LogiSphere] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-18T10:49:43.701+05:30  INFO 15924 --- [LogiSphere] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-18T10:49:45.347+05:30  WARN 15924 --- [LogiSphere] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-18T10:49:45.391+05:30  INFO 15924 --- [LogiSphere] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-07-18T10:49:46.252+05:30  INFO 15924 --- [LogiSphere] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-07-18T10:49:46.404+05:30  INFO 15924 --- [LogiSphere] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-18T10:49:46.416+05:30  INFO 15924 --- [LogiSphere] [main] com.example.demo.LogiSphereApplication   : Started LogiSphereApplication in 11.411 seconds (process running for 12.402)
+2026-07-18T10:49:56.022+05:30  INFO 15924 --- [LogiSphere] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-18T10:49:56.023+05:30  INFO 15924 --- [LogiSphere] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-18T10:49:56.024+05:30  INFO 15924 --- [LogiSphere] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-07-18T10:49:56.152+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shipments s1_0
+2026-07-18T10:49:56.180+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        customers c1_0
+2026-07-18T10:50:04.749+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-07-18T10:50:04.751+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [e2e.customer.20260718@example.com]
+2026-07-18T10:50:04.942+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shipments s1_0
+2026-07-18T10:50:04.953+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(s1_0.id) 
+    from
+        shipments s1_0 
+    where
+        s1_0.status=?
+2026-07-18T10:50:04.954+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [DELIVERED]
+2026-07-18T10:50:04.958+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(s1_0.id) 
+    from
+        shipments s1_0 
+    where
+        s1_0.status=?
+2026-07-18T10:50:04.959+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [PENDING]
+2026-07-18T10:50:04.963+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(s1_0.id) 
+    from
+        shipments s1_0 
+    where
+        s1_0.status=?
+2026-07-18T10:50:04.964+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [IN_TRANSIT]
+2026-07-18T10:50:04.968+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        customers c1_0
+2026-07-18T10:50:04.977+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        drivers d1_0
+2026-07-18T10:50:04.994+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.created_at,
+        s1_0.customer_name,
+        s1_0.description,
+        s1_0.destination,
+        s1_0.driver_name,
+        s1_0.expected_delivery_date,
+        s1_0.priority,
+        s1_0.shipment_date,
+        s1_0.shipping_cost,
+        s1_0.source,
+        s1_0.status,
+        s1_0.tracking_number,
+        s1_0.updated_at,
+        s1_0.vehicle_number,
+        s1_0.weight 
+    from
+        shipments s1_0 
+    order by
+        s1_0.created_at desc 
+    limit
+        ?
+2026-07-18T10:50:04.995+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [5]
+2026-07-18T10:50:05.031+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.active_shipments,
+        c1_0.address,
+        c1_0.business_category,
+        c1_0.cancelled_shipments,
+        c1_0.city,
+        c1_0.company_name,
+        c1_0.completed_shipments,
+        c1_0.country,
+        c1_0.created_at,
+        c1_0.customer_id,
+        c1_0.customer_type,
+        c1_0.email,
+        c1_0.full_name,
+        c1_0.gst_number,
+        c1_0.password,
+        c1_0.phone,
+        c1_0.pincode,
+        c1_0.state,
+        c1_0.status,
+        c1_0.total_shipments,
+        c1_0.updated_at 
+    from
+        customers c1_0
+2026-07-18T10:50:05.044+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.aadhaar_number,
+        d1_0.address,
+        d1_0.age,
+        d1_0.assigned_route,
+        d1_0.assigned_shipment,
+        d1_0.assigned_vehicle,
+        d1_0.assigned_warehouse,
+        d1_0.city,
+        d1_0.country,
+        d1_0.created_at,
+        d1_0.created_date,
+        d1_0.driver_id,
+        d1_0.email,
+        d1_0.emergency_contact_name,
+        d1_0.emergency_contact_number,
+        d1_0.enabled,
+        d1_0.experience,
+        d1_0.full_name,
+        d1_0.gender,
+        d1_0.joining_date,
+        d1_0.license_number,
+        d1_0.password,
+        d1_0.phone,
+        d1_0.pincode,
+        d1_0.role,
+        d1_0.salary,
+        d1_0.state,
+        d1_0.status,
+        d1_0.updated_at,
+        d1_0.updated_date,
+        d1_0.vehicle_number,
+        d1_0.vehicle_type 
+    from
+        drivers d1_0
+2026-07-18T10:50:05.054+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        n1_0.id,
+        n1_0.created_at,
+        n1_0.email_sent,
+        n1_0.is_read,
+        n1_0.message,
+        n1_0.notification_id,
+        n1_0.notification_type,
+        n1_0.priority,
+        n1_0.push_sent,
+        n1_0.read_at,
+        n1_0.recipient_email,
+        n1_0.recipient_id,
+        n1_0.recipient_name,
+        n1_0.recipient_phone,
+        n1_0.recipient_type,
+        n1_0.sent_at,
+        n1_0.shipment_id,
+        n1_0.sms_sent,
+        n1_0.status,
+        n1_0.title 
+    from
+        notifications n1_0 
+    order by
+        n1_0.created_at desc 
+    limit
+        ?
+2026-07-18T10:50:05.055+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [10]
+2026-07-18T10:50:05.060+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(v1_0.id) 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status=?
+2026-07-18T10:50:05.060+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACTIVE]
+2026-07-18T10:50:05.063+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(v1_0.id) 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status=?
+2026-07-18T10:50:05.064+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [IN_SERVICE]
+2026-07-18T10:50:05.067+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(v1_0.id) 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status=?
+2026-07-18T10:50:05.068+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [UNDER_MAINTENANCE]
+2026-07-18T10:50:05.075+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        w1_0.available_capacity,
+        w1_0.city,
+        w1_0.created_at,
+        w1_0.email,
+        w1_0.manager_name,
+        w1_0.phone_number,
+        w1_0.state,
+        w1_0.status,
+        w1_0.total_capacity,
+        w1_0.updated_at,
+        w1_0.warehouse_code,
+        w1_0.warehouse_name 
+    from
+        warehouses w1_0
+2026-07-18T10:50:05.084+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        warehouses w1_0 
+    where
+        w1_0.status=?
+2026-07-18T10:50:05.085+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACTIVE]
+2026-07-18T10:50:05.092+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        routes r1_0
+2026-07-18T10:50:05.098+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(r1_0.id) 
+    from
+        routes r1_0 
+    where
+        r1_0.status=?
+2026-07-18T10:50:05.099+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACTIVE]
+2026-07-18T10:50:05.288+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.ai_suggestion,
+        w1_0.city,
+        w1_0.country,
+        w1_0.created_at,
+        w1_0.feels_like,
+        w1_0.humidity,
+        w1_0.risk_level,
+        w1_0.route_status,
+        w1_0.state,
+        w1_0.temperature,
+        w1_0.updated_at,
+        w1_0.visibility,
+        w1_0.weather_condition,
+        w1_0.weather_icon,
+        w1_0.wind_speed 
+    from
+        weather w1_0
+2026-07-18T10:50:05.297+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        weather w1_0
+2026-07-18T10:50:05.306+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        weather w1_0 
+    where
+        w1_0.risk_level=?
+2026-07-18T10:50:05.306+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [HIGH]
+2026-07-18T10:50:05.309+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        weather w1_0 
+    where
+        w1_0.risk_level=?
+2026-07-18T10:50:05.310+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [MEDIUM]
+2026-07-18T10:50:05.312+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        weather w1_0 
+    where
+        w1_0.risk_level=?
+2026-07-18T10:50:05.313+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [LOW]
+2026-07-18T10:50:05.319+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        weather w1_0 
+    where
+        w1_0.route_status=?
+2026-07-18T10:50:05.320+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [SAFE]
+2026-07-18T10:50:05.323+05:30 DEBUG 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(w1_0.id) 
+    from
+        weather w1_0 
+    where
+        w1_0.route_status=?
+2026-07-18T10:50:05.323+05:30 TRACE 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [BLOCKED]
+2026-07-18T10:50:05.341+05:30 ERROR 15924 --- [LogiSphere] [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "weather/list": An error happened during template parsing (template: "class path resource [templates/weather/list.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/weather/list.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:374) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:193) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1042) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.22.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "user.fullName" (template: "weather/list" - line 76, col 27)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	... 46 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "user.fullName" (template: "weather/list" - line 76, col 27)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:302) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	... 48 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'fullName' cannot be found on object of type 'com.example.demo.entity.User' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:281) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:123) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:432) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:330) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:275) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	... 67 common frames omitted
+
+2026-07-18T10:50:05.350+05:30 ERROR 15924 --- [LogiSphere] [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/weather/list.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'fullName' cannot be found on object of type 'com.example.demo.entity.User' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:281) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:123) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:432) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:330) ~[spring-expression-7.0.8.jar!/:7.0.8]
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:275) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar!/:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:374) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:193) ~[thymeleaf-spring6-3.1.5.RELEASE.jar!/:3.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1042) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.8.jar!/:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.22.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar!/:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.22.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+

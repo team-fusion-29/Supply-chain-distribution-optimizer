@@ -1,0 +1,18 @@
+package com.example.demo.service;
+
+import java.util.UUID;
+import com.example.demo.dto.GenAiAnalyzeResponse;
+import com.example.demo.entity.*;
+import com.example.demo.repository.*;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+@Component
+public class GenAiScheduler {
+ private final ShipmentRepository shipments; private final WeatherRepository weather; private final CustomerRepository customers; private final DriverRepository drivers; private final AnalysisHistoryRepository history; private final NotificationService notifications; private final EmailService emails; private final GenAiAnalysisService ai;
+ public GenAiScheduler(ShipmentRepository s, WeatherRepository w, CustomerRepository c, DriverRepository d, AnalysisHistoryRepository h, NotificationService n, EmailService e, GenAiAnalysisService a){shipments=s;weather=w;customers=c;drivers=d;history=h;notifications=n;emails=e;ai=a;}
+ @Scheduled(fixedDelayString = "${genai.scheduler.fixed-delay-ms:300000}")
+ public void analyzeActiveShipments(){ for(Shipment shipment: shipments.findAll()){ if("DELIVERED".equalsIgnoreCase(shipment.getStatus()) || "CANCELLED".equalsIgnoreCase(shipment.getStatus())) continue; Weather record=weather.findAll().stream().filter(w->w.getCity().equalsIgnoreCase(shipment.getSource())||w.getCity().equalsIgnoreCase(shipment.getDestination())).findFirst().orElse(null); if(record!=null) analyze(shipment,record); } }
+ private void analyze(Shipment shipment, Weather record){ AnalysisHistory item=new AnalysisHistory(); item.setShipmentId(shipment.getId()); item.setWeatherId(record.getId()); String route=drivers.findAll().stream().filter(d->shipment.getDriverName().equalsIgnoreCase(d.getFullName())).map(Driver::getAssignedRoute).filter(v->v!=null&&!v.isBlank()).findFirst().orElse("UNKNOWN"); item.setRouteCode(route); Customer customer=customers.findAll().stream().filter(c->shipment.getCustomerName().equalsIgnoreCase(c.getFullName())).findFirst().orElse(null); item.setCustomerEmail(customer==null?null:customer.getEmail()); try { GenAiAnalyzeResponse response=ai.analyze(shipment,record,route,shipment.getCustomerName()); item.setWeatherAnalysis(response.weather_analysis()); item.setRiskAnalysis(response.risk_analysis()); item.setRouteAnalysis(response.route_analysis()); item.setEtaPrediction(response.eta_prediction()); item.setGeneratedEmail(response.email()); history.save(item); createNotification(shipment, customer, response); if(customer!=null) emails.sendGeneratedAnalysisEmail(customer.getEmail(),"AI analysis for shipment "+shipment.getTrackingNumber(),response.email()); drivers.findAll().stream().filter(d->shipment.getDriverName().equalsIgnoreCase(d.getFullName())).findFirst().ifPresent(d->{ if(d.getEmail()!=null) emails.sendGeneratedAnalysisEmail(d.getEmail(),"AI analysis for assigned shipment "+shipment.getTrackingNumber(),response.email()); }); } catch(Exception ex){ item.setStatus("FAILED"); item.setErrorMessage(ex.getMessage()); history.save(item); } }
+ private void createNotification(Shipment shipment, Customer customer, GenAiAnalyzeResponse response){ Notification n=new Notification(); n.setNotificationId("AI-"+UUID.randomUUID()); n.setTitle("AI analysis available for "+shipment.getTrackingNumber()); n.setMessage(response.risk_analysis()); n.setNotificationType("AI_ANALYSIS"); n.setRecipientType("ADMIN"); n.setShipmentId(shipment.getTrackingNumber()); n.setPriority("HIGH"); n.setStatus("SENT"); if(customer!=null){n.setRecipientId(customer.getId());n.setRecipientName(customer.getFullName());n.setRecipientEmail(customer.getEmail());} notifications.saveNotification(n); }
+}

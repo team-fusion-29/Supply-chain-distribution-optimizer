@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0891b2" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Decorative Grid -->
+  <g stroke="#293548" stroke-width="1" opacity="0.3">
+    <path d="M 50,0 L 50,600 M 150,0 L 150,600 M 250,0 L 250,600 M 350,0 L 350,600 M 450,0 L 450,600 M 550,0 L 550,600 M 650,0 L 650,600 M 750,0 L 750,600" />
+    <path d="M 0,50 L 800,50 M 0,150 L 800,150 M 0,250 L 800,250 M 0,350 L 800,350 M 0,450 L 800,450 M 0,550 L 800,550" />
+  </g>
+
+  <!-- Glowing background blobs -->
+  <circle cx="500" cy="300" r="180" fill="url(#glowGrad)" filter="url(#glow)" opacity="0.4" />
+  <circle cx="300" cy="400" r="120" fill="url(#glowGrad)" filter="url(#glow)" opacity="0.2" />
+
+  <!-- Global Isometric Base/Road Network -->
+  <g transform="translate(100, 80)">
+    <!-- Main Route Line -->
+    <path d="M 100,400 L 350,250 L 550,380 L 700,220" fill="none" stroke="#60a5fa" stroke-dasharray="10, 5" stroke-width="4" filter="url(#glow)" />
+    <path d="M 100,400 L 350,250 L 550,380 L 700,220" fill="none" stroke="#2563eb" stroke-width="3" />
+
+    <!-- Route Nodes -->
+    <circle cx="100" cy="400" r="8" fill="#38bdf8" />
+    <circle cx="100" cy="400" r="16" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.5" />
+
+    <circle cx="350" cy="250" r="8" fill="#38bdf8" />
+    <circle cx="350" cy="250" r="16" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.5" />
+
+    <circle cx="550" cy="380" r="8" fill="#7c3aed" />
+    <circle cx="550" cy="380" r="16" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.5" />
+
+    <circle cx="700" cy="220" r="10" fill="#06b6d4" />
+    <circle cx="700" cy="220" r="20" fill="none" stroke="#06b6d4" stroke-width="3" filter="url(#glow)" />
+
+    <!-- Isometric Delivery Truck Representation -->
+    <g transform="translate(320, 210) scale(0.9)">
+      <!-- Truck Shadow -->
+      <ellipse cx="60" cy="70" rx="65" ry="25" fill="#000000" opacity="0.3" />
+
+      <!-- Truck Body (isometric style) -->
+      <!-- Back Container -->
+      <path d="M 10,40 L 70,10 L 130,35 L 70,65 Z" fill="url(#blueGrad)" />
+      <path d="M 10,40 L 70,65 L 70,105 L 10,80 Z" fill="#1e4ed8" />
+      <path d="M 70,65 L 130,35 L 130,75 L 70,105 Z" fill="#1e3a8a" />
+
+      <!-- Cab -->
+      <path d="M 110,68 L 130,58 L 150,67 L 130,77 Z" fill="url(#cyanGrad)" />
+      <path d="M 110,68 L 130,77 L 130,102 L 110,93 Z" fill="#0891b2" />
+      <path d="M 130,77 L 150,67 L 150,92 L 130,102 Z" fill="#0e7490" />
+
+      <!-- Wheels -->
+      <circle cx="35" cy="95" r="12" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+      <circle cx="95" cy="103" r="12" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+    </g>
+
+    <!-- Cargo Airplane Flying -->
+    <g transform="translate(420, 50)">
+      <!-- Plane Shadow on Ground -->
+      <ellipse cx="100" cy="250" rx="50" ry="12" fill="#000000" opacity="0.1" />
+
+      <!-- Isometric Plane -->
+      <path d="M 50,60 L 150,40 L 120,30 L 30,50 Z" fill="#ffffff" opacity="0.9" />
+      <path d="M 90,48 L 190,10 L 160,20 L 70,55 Z" fill="#e2e8f0" />
+      <!-- Wings -->
+      <path d="M 100,45 L 80,10 L 60,15 L 90,46 Z" fill="#cbd5e1" />
+      <path d="M 110,42 L 170,80 L 180,78 L 120,41 Z" fill="#94a3b8" />
+    </g>
+
+    <!-- Map Pin with Pulse -->
+    <g transform="translate(685, 120)">
+      <path d="M 15,10 C 5,10 0,18 0,28 C 0,40 15,55 15,55 C 15,55 30,40 30,28 C 30,18 25,10 15,10 Z" fill="url(#purpleGrad)" filter="url(#glow)" />
+      <circle cx="15" cy="25" r="5" fill="#ffffff" />
+    </g>
+
+    <!-- Floating UI Box (Real-time analytics preview) -->
+    <g transform="translate(60, 100)">
+      <!-- Glassmorphism Card -->
+      <rect x="0" y="0" width="180" height="90" rx="16" fill="rgba(24, 34, 53, 0.7)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+      
+      <!-- Card Content -->
+      <circle cx="30" cy="30" r="12" fill="#22c55e" opacity="0.2" />
+      <circle cx="30" cy="30" r="6" fill="#22c55e" />
+      <text x="52" y="34" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Shipment Active</text>
+      
+      <text x="20" y="65" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">ID: LS-48291</text>
+      <text x="20" y="80" fill="#60a5fa" font-family="'Inter', sans-serif" font-weight="600" font-size="11">ETA: 2 Hours</text>
+    </g>
+
+    <!-- Weather Cloud Icon Float -->
+    <g transform="translate(480, 250)">
+      <rect x="0" y="0" width="150" height="70" rx="14" fill="rgba(24, 34, 53, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <path d="M 25,40 C 25,35 30,30 35,30 C 37,30 39,31 40,32 C 42,28 47,25 52,25 C 59,25 64,30 64,37 C 67,37 70,40 70,43 C 70,47 67,50 63,50 L 27,50 C 23,50 20,47 20,43 C 20,40 22,40 25,40 Z" fill="#94a3b8" />
+      <text x="80" y="38" fill="#ffffff" font-family="'Inter', sans-serif" font-weight="600" font-size="12">Weather Alert</text>
+      <text x="80" y="52" fill="#ef4444" font-family="'Inter', sans-serif" font-size="11">Heavy Rain</text>
+    </g>
+  </g>
+</svg>

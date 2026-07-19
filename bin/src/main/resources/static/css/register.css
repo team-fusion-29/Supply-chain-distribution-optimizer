@@ -1,0 +1,107 @@
+
+
+.register-form{
+
+    margin-top:20px;
+
+}
+
+
+
+.form-select{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#ffffff;
+
+    height:56px;
+
+    border-radius:14px;
+
+    box-shadow:none;
+
+}
+
+.form-select:focus{
+
+    border-color:#38bdf8;
+
+    box-shadow:0 0 18px rgba(56,189,248,.18);
+
+    background:rgba(255,255,255,.05);
+
+    color:#ffffff;
+
+}
+
+.form-select option{
+
+    background:#111827;
+
+    color:#ffffff;
+
+}
+
+
+
+.form-check{
+
+    margin-top:10px;
+
+}
+
+.form-check-label{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+}
+
+.form-check-label a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.form-check-label a:hover{
+
+    color:#ffffff;
+
+}
+
+
+
+#togglePassword{
+
+    border:none;
+
+    background:transparent;
+
+    color:#94a3b8;
+
+}
+
+#togglePassword:hover{
+
+    color:#38bdf8;
+
+}
+
+
+
+@media(max-width:768px){
+
+    .register-form .row>.col-md-6{
+
+        margin-bottom:0;
+
+    }
+
+}

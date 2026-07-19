@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | LogiSphere</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/customer-dashboard.css}">
+</head>
+<body>
+
+<div class="dashboard-bg-decorations">
+    <div class="decor-blob blob-blue"></div>
+    <div class="decor-blob blob-purple"></div>
+</div>
+
+<div class="sidebar">
+    <div class="logo">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>LogiSphere</span>
+    </div>
+    <ul class="menu">
+        <li class="active">
+            <a th:href="@{/customer/dashboard}">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/track}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Track Shipment
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/#about}">
+                <i class="fa-solid fa-info-circle"></i>
+                About Us
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/#contact}">
+                <i class="fa-solid fa-envelope"></i>
+                Support
+            </a>
+        </li>
+    </ul>
+    <div class="sidebar-footer">
+        <form th:action="@{/logout}" method="post" class="d-inline">
+        <button type="submit" class="logout-btn border-0">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+        </form>
+    </div>
+</div>
+
+<div class="main-content">
+    <!-- Topbar -->
+    <div class="topbar py-3 px-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div class="dashboard-title">
+            <h4 class="text-white fw-bold mb-0">Customer Portal</h4>
+        </div>
+        <div class="topbar-actions d-flex align-items-center gap-3">
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="profile-info d-flex align-items-center gap-2">
+                <div class="profile-avatar text-white bg-info rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">CS</div>
+                <div class="profile-text text-start">
+                    <span class="d-block text-white fw-semibold small" th:text="${customer.fullName}">Customer Name</span>
+                    <span class="d-block text-muted small" style="font-size: 11px;" th:text="${customer.email}">john@example.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="container-fluid p-4">
+        
+        <!-- Welcome Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="glass-card welcome-card p-5 text-white position-relative overflow-hidden shadow-sm">
+                    <div class="welcome-bg-blob"></div>
+                    <div class="position-relative z-index-2">
+                        <span class="badge bg-info px-3 py-2 rounded-pill mb-3">Customer Panel</span>
+                        <h2 class="fw-bold mb-2">Welcome Back, <span class="gradient-text" th:text="${customer.fullName}">User</span>!</h2>
+                        <p class="text-secondary max-width-600 mb-0">Monitor your cargo dispatches, search shipment history, check live weather warnings, and contact support on one unified customer console.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm">
+                    <div class="card-icon bg-primary bg-opacity-25 text-primary"><i class="fa-solid fa-box"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Total Shipments</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${totalShipments}">12</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm success">
+                    <div class="card-icon bg-success bg-opacity-25 text-success"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Delivered</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${deliveredShipments}">8</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm warning">
+                    <div class="card-icon bg-warning bg-opacity-25 text-warning"><i class="fa-solid fa-clock"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Pending / Transit</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${pendingShipments + inTransitShipments}">3</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="dashboard-card border border-secondary border-opacity-25 shadow-sm danger">
+                    <div class="card-icon bg-danger bg-opacity-25 text-danger"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <div class="card-data mt-3">
+                        <h6 class="text-muted text-uppercase small">Cancelled</h6>
+                        <h2 class="text-white fw-bold mb-0" th:text="${cancelledShipments}">1</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Track & History Panel -->
+        <div class="row g-4 mb-4">
+            <!-- Track Card -->
+            <div class="col-lg-5">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-location-crosshairs text-info me-2"></i>Quick Track Shipment</h5>
+                    <p class="text-secondary small mb-4">Lookup detailed status updates and tracking logs instantly without browsing menus.</p>
+                    
+                    <form th:action="@{/track}" method="get" id="quickTrackForm" class="mt-2">
+                        <div class="mb-3">
+                            <label for="trackingNum" class="form-label text-muted small">Tracking ID</label>
+                            <input type="text" name="trackingNumber" id="trackingNum" class="form-control bg-transparent text-white border-secondary" placeholder="e.g. LS-12345" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100 mt-2 d-flex align-items-center justify-content-center gap-2">
+                            <span>Track Package</span>
+                            <div class="spinner-border spinner-border-sm d-none" id="quickTrackSpinner" role="status"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Overview Card -->
+            <div class="col-lg-7">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-white fw-bold mb-4"><i class="fa-solid fa-address-card text-info me-2"></i>My Client Profile</h5>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Full Name</span>
+                            <span class="profile-detail-value fw-semibold" th:text="${customer.fullName}">John Doe</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Client ID</span>
+                            <span class="profile-detail-value fw-semibold" th:text="${customer.customerId}">CUST-1029</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">GST/Company Identifier</span>
+                            <span class="profile-detail-value fw-semibold" th:text="${customer.gstNumber != null ? customer.gstNumber : 'N/A'}">GST-8419</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small d-block">Email Address</span>
+                            <span class="profile-detail-value fw-semibold" th:text="${customer.email}">john@example.com</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <span class="text-muted small d-block">Billing Address</span>
+                            <span class="profile-detail-value fw-semibold" th:text="${customer.address != null ? customer.address + ', ' + customer.city + ', ' + customer.state + ' - ' + customer.pincode : 'Address not provided'}">Madhapur, Hyderabad, TS - 500081</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipment Log Details -->
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="glass-card p-4">
+                    <h5 class="text-white fw-bold mb-4">Active Cargo Shipments</h5>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover table-borderless align-middle mb-0" id="shipmentsTable">
+                            <thead>
+                                <tr class="text-muted border-bottom border-secondary border-opacity-50">
+                                    <th>Tracking Number</th>
+                                    <th>Destination</th>
+                                    <th>Source</th>
+                                    <th>ETA</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="shipment : ${recentShipments}">
+                                    <td>
+                                        <a th:href="@{/track(trackingNumber=${shipment.trackingNumber})}" class="fw-semibold text-info" th:text="${shipment.trackingNumber}">LS-12345</a>
+                                    </td>
+                                    <td class="text-secondary" th:text="${shipment.destination}">Vijayawada</td>
+                                    <td class="text-secondary" th:text="${shipment.source}">Hyderabad</td>
+                                    <td class="text-secondary" th:text="${#temporals.format(shipment.expectedDeliveryDate, 'dd MMM yyyy')}">18 Jul 2026</td>
+                                    <td>
+                                        <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill" th:if="${shipment.status == 'DELIVERED'}">Delivered</span>
+                                        <span class="badge bg-warning-subtle text-warning px-2 py-1 rounded-pill" th:if="${shipment.status == 'IN_TRANSIT'}">In Transit</span>
+                                        <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill" th:if="${shipment.status == 'PENDING'}">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr th:if="${recentShipments.empty}">
+                                    <td colspan="5" class="text-center text-muted">No cargo dispatches registered to your name.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Feed -->
+            <div class="col-lg-4">
+                <div class="glass-card p-4">
+                    <h5 class="text-white fw-bold mb-4">Latest Shipment Alerts</h5>
+                    <div class="activity-timeline">
+                        <div class="activity-item d-flex gap-3 mb-3" th:each="notif : ${latestNotifications}">
+                            <div class="activity-marker bg-info bg-opacity-25 text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; flex-shrink: 0;">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div>
+                                <span class="text-white fw-semibold d-block" th:text="${notif.message}">Your order is dispatched.</span>
+                                <span class="text-muted small" th:text="${#temporals.format(notif.createdAt, 'dd MMM yyyy HH:mm')}">16 Jul 2026 21:00</span>
+                            </div>
+                        </div>
+                        <div th:if="${latestNotifications.empty}" class="text-center text-muted py-3">No notifications logged.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/customer-dashboard.js}"></script>
+</body>
+</html>
